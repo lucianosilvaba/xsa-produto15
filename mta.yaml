@@ -1,0 +1,28 @@
+ID: produto_15
+_schema-version: '2.0'
+description: Produto
+version: 0.0.1
+modules:
+  - name: mod_15_web
+    type: html5
+    path: mod_15_web
+    properties:
+      app-name: modulo_15_web
+      memory: 32M
+      disk-quota: 32M
+
+  - name: mod_15_db
+    type: hdb
+    path: mod_15_db
+    requires:
+     - name: hdi_mod_15_db
+
+
+resources:
+ - name: hdi_mod_15_db
+   parameters:
+      config:
+         schema: PRODUTO_15
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
